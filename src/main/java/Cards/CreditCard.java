@@ -1,17 +1,28 @@
 package Cards;
 
-import java.util.Calendar;
+public class CreditCard extends PaymentCard {
 
-public class CreditCard extends PaymentCard  {
+    private double customerRiskMultiplier;
+    private double creditLimit;
 
-    private double riskMultiplier;
 
-    public CreditCard(double cardCost, String cardType, int cardNumber, String expirationDate, double riskMultiplier){
-        super(cardCost, cardType, cardNumber, expirationDate);
-        this.riskMultiplier = riskMultiplier;
+    public CreditCard(int cardNumber, String expiryDate, int securityNumber, double creditLimit) {
+        super(cardNumber, expiryDate, securityNumber);
+        this.customerRiskMultiplier = 0.05;
+        this.creditLimit = creditLimit;
     }
 
-    public double getRiskMultiplier() {
-        return riskMultiplier;
+    public double getCreditLimit() {
+        return this.creditLimit;
     }
+
+    public double getTransactionCost(double purchaseAmount) {
+        return 0.02 * purchaseAmount;
+    }
+
+    public void charge(double purchaseAmount) {
+        this.addToListOfCharges(purchaseAmount);
+        this.creditLimit -= purchaseAmount;
+    }
+
 }

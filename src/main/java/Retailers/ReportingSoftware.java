@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 public class ReportingSoftware {
 
-    private ArrayList<Double> chargesList;
+    private ArrayList<Double> transactionCosts;
 
     public ReportingSoftware() {
-        this.chargesList = new ArrayList<Double>();
+        this.transactionCosts = new ArrayList<Double>();
     }
 
-    public ArrayList<Double> getChargesList() {
-        return this.chargesList;
+    public ArrayList<Double> getTransactionCostsList() {
+        return this.transactionCosts;
     }
 
-    public void addToList(Double chargeAmount){
-        this.chargesList.add(chargeAmount);
+    public void addCostToList(double cost) {
+        this.transactionCosts.add(cost);
     }
 
 }

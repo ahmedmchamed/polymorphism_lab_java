@@ -2,41 +2,40 @@ package Cards;
 
 import Retailers.IChargeable;
 
-import java.util.Calendar;
+import java.util.ArrayList;
 
 public abstract class PaymentCard implements IChargeable {
 
-    protected double cardCost;
-    protected String cardType;
     protected int cardNumber;
-    protected String expirationDate;
+    protected String expiryDate;
+    protected int securityNumber;
+    protected ArrayList<Double> charges;
 
-    public PaymentCard(double cardCost, String cardType, int cardNumber, String expirationDate){
-        this.cardCost = cardCost;
-        this.cardType = cardType;
+    public PaymentCard(int cardNumber, String expiryDate, int securityNumber) {
         this.cardNumber = cardNumber;
-        this.expirationDate = expirationDate;
-    }
-
-    public double getChargeAmount(double transactionAmount) {
-        return this.cardCost * transactionAmount;
-    }
-
-    public double getCardCost() {
-        return this.cardCost;
-    }
-
-    public String getCardType() {
-        return this.cardType;
+        this.expiryDate = expiryDate;
+        this.securityNumber = securityNumber;
+        this.charges = new ArrayList<Double>();
     }
 
     public int getCardNumber() {
         return this.cardNumber;
     }
 
-    public String getExpirationDate() {
-        return this.expirationDate;
+    public String getExpiryDate() {
+        return this.expiryDate;
     }
 
+    public int getSecurityNumber() {
+        return this.securityNumber;
+    }
+
+    public ArrayList<Double> getCharges() {
+        return this.charges;
+    }
+
+    public void addToListOfCharges(double purchaseAmount) {
+        this.charges.add(purchaseAmount);
+    }
 
 }
