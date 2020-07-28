@@ -21,10 +21,10 @@ public class GiftCard implements IChargeable {
     }
 
     public String getVendor() {
-        return vendor;
+        return this.vendor;
     }
 
     public double getBalance() {
-        return balance;
+        return this.balance;
     }
 }
